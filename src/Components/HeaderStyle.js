@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {moderateVerticalScale, moderateScale} from 'react-native-size-matters';
 import color from '../style/color';
+import LinearGradient from 'react-native-linear-gradient';
 export const Styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
@@ -8,13 +9,14 @@ export const Styles = StyleSheet.create({
     alignContent: 'center',
     paddingHorizontal: moderateScale(23),
     borderBottomColor: 'black',
-    backgroundColor: color.White,
-    paddingTop: moderateScale(50),
-    height: 100,
+    backgroundColor:color.Dark_purple,
+    paddingTop: moderateScale(15),
+    height:65,
     shadowColor: color.Black,
-    shadowOffset: {width: 1, height: 1},
-    shadowOpacity: 0.1,
-    elevation: 20,
+    zIndex:99999
+    // shadowOffset: {width: 1, height: 1},
+    // shadowOpacity: 0.1,
+    // elevation: 20,
   },
   Leftcontainer: {
     flexDirection: 'row',

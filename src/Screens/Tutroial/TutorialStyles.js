@@ -42,4 +42,9 @@ export const Styles = StyleSheet.create({
     color: color.Dark_purple,
     textDecorationLine: 'underline',
   },
+  slideimg: {
+    width: 360,
+    height: 500,
+    marginRight: 20,
+  },
 });

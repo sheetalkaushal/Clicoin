@@ -7,15 +7,9 @@ const All = () => {
   const apivalue = useSelector(state => state.status.apiupdate);
   return (
     <View>
-      <FlatList
-        scrollEnabled={false}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-        pagingEnabled
-        data={apivalue}
-        keyExtractor={item => item.id.toString()}
-        renderItem={({item}) => (
-          <TouchableOpacity style={Style.bitcoins}>
+      {apivalue.map((item, index) => {
+        return (
+          <TouchableOpacity key={index} style={Style.bitcoins}>
             <View style={Style.uppertext}>
               <Image style={Style.symbol} source={{uri: item.image}} />
               <Text style={Style.uppertexts}>
@@ -31,8 +25,8 @@ const All = () => {
               </Text>
             </View>
           </TouchableOpacity>
-        )}
-      />
+        );
+      })}
     </View>
   );
 };

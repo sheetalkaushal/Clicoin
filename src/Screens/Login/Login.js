@@ -1,5 +1,5 @@
 import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Styles} from './LoginStyle';
 import Custombtn from '../../Components/Custombtn';
 import ImagePath from '../../constants/ImagePath';
@@ -24,7 +24,7 @@ export const Login = ({navigation}) => {
       alert('enter password');
     } else {
       namedata(users);
-      AsyncSendData('Suggestions', {Email: Email, Password: password});
+      AsyncSendData('Suggestions', {Email: Email});
       datasend(true);
     }
   }
@@ -37,23 +37,23 @@ export const Login = ({navigation}) => {
   };
   useEffect(() => {
     GoogleSignin.configure({
-      webClientId:'797521806911-re03641dksu3etb6ut578acrolkasf1g.apps.googleusercontent.com',
-      // offlineAccess: true 
+      webClientId:
+        '797521806911-re03641dksu3etb6ut578acrolkasf1g.apps.googleusercontent.com',
+      // offlineAccess: true
     });
   }, []);
   const googleSignIn = async () => {
-   
-   // Check if your device supports Google Play
-   await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
-   // Get the users ID token
-   const {idToken} = await GoogleSignin.signIn();
-   // Create a Google credential with the token
-   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-   // Sign-in the user with the credential
-   const res = await auth().signInWithCredential(googleCredential);
-   setUser({res});
-   console.log('res>>>', res);
-  }
+    // Check if your device supports Google Play
+    await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
+    // Get the users ID token
+    const {idToken} = await GoogleSignin.signIn();
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    // Sign-in the user with the credential
+    const res = await auth().signInWithCredential(googleCredential);
+    setUser({res});
+    console.log('res>>>', res);
+  };
   const SignOut = async () => {
     try {
       await GoogleSignin.signOut();
@@ -77,6 +77,7 @@ export const Login = ({navigation}) => {
 
         if (error.code === 'auth/invalid-email') {
           console.log('That email address is invalid!');
+          return;
         }
 
         console.error(error);
@@ -84,7 +85,7 @@ export const Login = ({navigation}) => {
   };
 
   function toggleEye() {
-  Setpasscheck(!passcheck)
+    Setpasscheck(!passcheck);
   }
   return (
     <View style={Styles.container}>
@@ -108,6 +109,7 @@ export const Login = ({navigation}) => {
           blurOnSubmit
           placeholder={'Email'}
           isFocused={isFocusedEmail}
+          autoFocus={true}
         />
         <TextField
           value={pass}
@@ -120,12 +122,13 @@ export const Login = ({navigation}) => {
           passwordInput={true}
           passcheck={passcheck}
           toggleEye={toggleEye}
-          maxLength={8}
+          maxLength={10}
         />
         <TouchableOpacity>
           <Text style={Styles.forgot}>{strings.Forgot}</Text>
         </TouchableOpacity>
-        <Custombtn onPress={Emailsign} title={strings.Continue} />
+        <Custombtn onPress={() => {Emailsign();gotologin()}} title={strings.Continue} />
+        
         <View style={Styles.orborder}>
           <View style={Styles.orline}></View>
           <Text style={Styles.or}>{strings.or}</Text>

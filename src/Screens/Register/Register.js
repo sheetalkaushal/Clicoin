@@ -42,8 +42,10 @@ export const Register = ({navigation}) => {
   }
   useEffect(() => {
     GoogleSignin.configure({
-    webClientid:'797521806911-re03641dksu3etb6ut578acrolkasf1g.apps.googleusercontent.com',
-   }) }, []);
+      webClientid:
+        '797521806911-re03641dksu3etb6ut578acrolkasf1g.apps.googleusercontent.com',
+    });
+  }, []);
   const Googlelogin = async () => {
     try {
       await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
@@ -95,6 +97,7 @@ export const Register = ({navigation}) => {
           onChangeText={val => SetFullName(val)}
           maxLength={15}
           isFocused={isFocusedFullName}
+          autoFocus={true}
         />
       </View>
       <View style={{marginBottom: moderateScale(30), height: 50}}>
@@ -135,15 +138,16 @@ export const Register = ({navigation}) => {
         <Text style={Styles.or}>{strings.or}</Text>
         <View style={Styles.orline1}></View>
       </View>
-      <Btnsocial onPress={Googlelogin}
+      <Btnsocial
+        onPress={Googlelogin}
         socialimg={ImagePath.icGoogle}
         title={strings.Google_account}
       />
-          <TouchableOpacity style={Styles.sign}>
-          <Text onPress={SignOut} style={Styles.signout}>
-            SignOut
-          </Text>
-        </TouchableOpacity>
+      <TouchableOpacity style={Styles.sign}>
+        <Text onPress={SignOut} style={Styles.signout}>
+          SignOut
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };

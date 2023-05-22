@@ -36,10 +36,7 @@ const renderItem = ({item}) => {
       style={{
         alignItems: 'center',
       }}>
-      <Image
-        source={item.url}
-        style={{width: 360, height: 500, marginRight: 20}}
-      />
+      <Image source={item.url} style={Styles.slideimg} />
     </View>
   );
 };
@@ -60,7 +57,7 @@ export const Tutorial = ({navigation}) => {
           sliderWidth={SLIDER_WIDTH}
           itemWidth={ITEM_WIDTH}
           autoplay={true}
-          loop={true}  
+          loop={true}
           onSnapToItem={index => setIndex(index)}
         />
       </View>

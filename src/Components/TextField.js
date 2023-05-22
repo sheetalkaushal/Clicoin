@@ -22,6 +22,7 @@ const TextField = ({
   passwordInput = false,
   passcheck,
   inputtextstyle,
+  autoFocus,
   toggleEye = ()=>{}
 
 }) => {
@@ -50,6 +51,7 @@ const TextField = ({
           onChangeText={onChangeText}
           onFocus={Focus}
           onBlur={Blur}
+          autoFocus={autoFocus}
           blurOnSubmit
           placeholder={isFocused ? '' : placeholder}
           secureTextEntry={passcheck}

@@ -14,14 +14,9 @@ export const Toptabs = () => {
   const Grainers = () => {
     return (
       <View style={Style.toptext}>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-          pagingEnabled
-          data={apivalue}
-          keyExtractor={item => item.id.toString()}
-          renderItem={({item}) => (
-            <TouchableOpacity style={Style.bitcoins}>
+        {apivalue.map((item, index) => {
+          return (
+            <TouchableOpacity key={index} style={Style.bitcoins}>
               <View style={Style.uppertext}>
                 <Image style={Style.symbol} source={{uri: item.image}} />
                 <Text style={Style.uppertexts}>
@@ -37,22 +32,17 @@ export const Toptabs = () => {
                 </Text>
               </View>
             </TouchableOpacity>
-          )}
-        />
+          );
+        })}
       </View>
     );
   };
   const Loser = () => {
     return (
       <View style={Style.toptext}>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-          pagingEnabled
-          data={apivalue}
-          keyExtractor={item => item.id.toString()}
-          renderItem={({item}) => (
-            <TouchableOpacity style={Style.bitcoins}>
+        {apivalue.map((item, index) => {
+          return (
+            <TouchableOpacity key={index} style={Style.bitcoins}>
               <View style={Style.uppertext}>
                 <Image style={Style.symbol} source={{uri: item.image}} />
                 <Text style={Style.uppertexts}>
@@ -68,22 +58,17 @@ export const Toptabs = () => {
                 </Text>
               </View>
             </TouchableOpacity>
-          )}
-        />
+          );
+        })}
       </View>
     );
   };
   const New = () => {
     return (
       <View style={Style.toptext}>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}
-          pagingEnabled
-          data={apivalue}
-          keyExtractor={item => item.id.toString()}
-          renderItem={({item}) => (
-            <TouchableOpacity style={Style.bitcoins}>
+        {apivalue.map((item, index) => {
+          return (
+            <TouchableOpacity key={index} style={Style.bitcoins}>
               <View style={Style.uppertext}>
                 <Image style={Style.symbol} source={{uri: item.image}} />
                 <Text style={Style.uppertexts}>
@@ -93,14 +78,14 @@ export const Toptabs = () => {
                 </Text>
               </View>
               <View style={Style.counting}>
-                <Text style={Style.count}>{item.atl}</Text>
+                <Text style={Style.count}>{item.current_price}</Text>
                 <Text style={Style.countdown}>
                   {item.price_change_percentage_24h}
                 </Text>
               </View>
             </TouchableOpacity>
-          )}
-        />
+          );
+        })}
       </View>
     );
   };

@@ -6,10 +6,11 @@ import MainStack from "./MainStack";
 const Stack = createNativeStackNavigator();
 export default function Routes() {
 const checkStatus=useSelector((state)=>state.status.checkStatus)
+console.log(checkStatus)
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ animation: "slide_from_right" }}>
-        {checkStatus? MainStack(Stack) : AuthStack(Stack)}
+        {true? MainStack(Stack) : AuthStack(Stack)}
       </Stack.Navigator>
     </NavigationContainer>
   );
