@@ -1,31 +1,31 @@
-import { View, Text } from "react-native";
-import React from "react";
-import { Bottomtab } from "./Bottomtab";
-import { Toptabs } from "../Components/Toptabs";
-import Catogeries from "../Screens/Catogeries/Catogeries";
-import All from "../Screens/All/All";
+import {View, Text} from 'react-native';
+import React from 'react';
+import {Bottomtab} from './Bottomtab';
+import {Toptabs} from '../Components/Toptabs';
+import Catogeries from '../Screens/Catogeries/Catogeries';
+import All from '../Screens/All/All';
 export default function MainStack(Stack) {
   return (
     <>
       <Stack.Screen
-        name={"Bottomtab"}
+        name={'Bottomtab'}
         component={Bottomtab}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <Stack.Screen
-        name={"Toptabs"}
+        name={'Toptabs'}
         component={Toptabs}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <Stack.Screen
-        name={"Catogeries"}
+        name={'Catogeries'}
         component={Catogeries}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <Stack.Screen
-        name={"All"}
+        name={'All'}
         component={All}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
     </>
   );

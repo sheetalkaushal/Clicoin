@@ -1,6 +1,5 @@
 import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
-import Header from '../../Components/Header';
 import ImagePath from '../../constants/ImagePath';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import Watchlist from '../Watchlist/Watchlist';
@@ -8,12 +7,15 @@ import Catogeries from '../Catogeries/Catogeries';
 import All from '../All/All';
 import {Styles} from './MarketsStyle';
 import color from '../../style/color';
+import MarketHeader from '../../Components/MarketHeader';
+
 const Tab = createMaterialTopTabNavigator();
 const Marketing = () => {
   return (
     <>
       <View>
-        <Header
+        <MarketHeader
+        Header
           myText={'Markets'}
           notification={ImagePath.icSreach}
           txtstyle={Styles.market}

@@ -2,6 +2,12 @@ import {StyleSheet} from 'react-native';
 import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
 import color from '../../style/color';
 export const Style = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: color.White,
+    paddingTop: 10,
+    margin: 0,
+  },
   iconsorder: {
     flexDirection: 'row',
     justifyContent: 'space-between',

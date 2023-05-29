@@ -9,11 +9,10 @@ export const Styles = StyleSheet.create({
     alignContent: 'center',
     paddingHorizontal: moderateScale(23),
     borderBottomColor: 'black',
-    backgroundColor:color.Dark_purple,
+    backgroundColor: color.Dark_purple,
     paddingTop: moderateScale(15),
-    height:65,
+    height: 65,
     shadowColor: color.Black,
-    zIndex:99999
     // shadowOffset: {width: 1, height: 1},
     // shadowOpacity: 0.1,
     // elevation: 20,

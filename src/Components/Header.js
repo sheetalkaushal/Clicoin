@@ -1,22 +1,57 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import React, {useRef } from "react";
-import { Styles } from "./HeaderStyle";
-import { Animated } from "react-native"
-import ImagePath from "../constants/ImagePath";
-import { useSelector } from "react-redux";
-export default Header = ({myText,Myimg,notification,txtstyle,headerStyle}) => {
-  const offset= useRef(new  Animated.Value(0)).current;
+import * as React from 'react';
+import {Text, View, StyleSheet, Animated} from 'react-native';
+import color from '../style/color';
+import ImagePath from '../constants/ImagePath';
+
+
+const Header_Max_Height = 300;
+const Header_Min_Height = 70;
+
+export default function DynamicHeader({animHeaderValue}) {
+  const animateHeaderBackgroundColor = animHeaderValue.interpolate({
+    inputRange: [0, Header_Max_Height - Header_Min_Height],
+    outputRange: [color.Dark_purple,color.White],
+    extrapolate: 'clamp',
+  });
+
+  const animateHeaderHeight = animHeaderValue.interpolate({
+    inputRange: [0, Header_Max_Height - Header_Min_Height],
+    outputRange: [Header_Max_Height, Header_Min_Height],
+    extrapolate: 'clamp',
+  });
+
   return (
-  
-    <View style={{...Styles.header,...headerStyle}}>
-      <TouchableOpacity style={Styles.Leftcontainer}>
-        {Myimg ?(<Image style={Styles.profile} source={Myimg} />):null}
-        <Text style={{...Styles.profilename,...txtstyle}}>{myText}</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={Styles.Rightcontainer}>
-        <Image style={Styles.notification} source={notification}/>
-      </TouchableOpacity>
-    </View>
+
+    <Animated.View
+      style={[
+        styles.header,
+        {
+          height: animateHeaderHeight,
+          backgroundColor: animateHeaderBackgroundColor,
+          elevation: 1,
+        
+        },
+      ]}>
+      <Text style={styles.headerText}>{ImagePath.icProfile}</Text>
+      <Text style={styles.headerText}>{ImagePath.icnotification}</Text>
+    </Animated.View>
 
   );
-};
+}
+
+const styles = StyleSheet.create({
+  header: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    left: 0,
+    right: 0,
+    paddingTop: 10,
+    elevation: 1,
+  },
+  headerText: {
+    color: '#fff',
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});
