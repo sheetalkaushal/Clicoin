@@ -29,7 +29,7 @@ export default ({
       style={{
         ...Style.inputstyle,
         // borderColor:
-          // isTextInputFocused == true ? color.Dark_purple : color.DARK_GREY,
+        // isTextInputFocused == true ? color.Dark_purple : color.DARK_GREY,
       }}
       onFocus={() => setTextInputFocused(true)}>
       <TextInput
@@ -64,7 +64,7 @@ const Style = StyleSheet.create({
     flex: 1,
     color: color.Black,
   },
-  show:{
-    marginRight:moderateScale(12)
-  }
+  show: {
+    marginRight: moderateScale(12),
+  },
 });

@@ -1,33 +1,39 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import React, {useRef } from "react";
-import { Styles } from "./HeaderStyle";
-import { Animated } from "react-native"
-import ImagePath from "../constants/ImagePath";
-import { useSelector } from "react-redux";
-export default Header = ({myText,Myimg,notification,txtstyle,headerStyle}) => {
-  const offset= useRef(new  Animated.Value(0)).current;
+import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import React, {useRef} from 'react';
+// import { Styles } from "./HeaderStyle";
+import {Animated} from 'react-native';
+import ImagePath from '../constants/ImagePath';
+import {useSelector} from 'react-redux';
+import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
+import color from '../style/color';
+export default Header = ({
+  myText,
+  Myimg,
+  notification,
+  txtstyle,
+  headerStyle,
+}) => {
   return (
-    <View style={{...Styles.header,...headerStyle}}>
+    <View style={{...Styles.header, ...headerStyle}}>
       <TouchableOpacity style={Styles.Leftcontainer}>
-        {Myimg ?(<Image style={Styles.profile} source={Myimg} />):null}
-        <Text style={{...Styles.profilename,...txtstyle}}>{myText}</Text>
+        {Myimg ? <Image style={Styles.profile} source={Myimg} /> : null}
+        <Text style={{...Styles.profilename, ...txtstyle}}>{myText}</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={Styles.Rightcontainer}>
-        <Image style={Styles.notification} source={notification}/>
+      <TouchableOpacity>
+        <Image style={Styles.notification} source={notification} />
       </TouchableOpacity>
     </View>
-
   );
 };
-const Styles=StyleSheet.create({
+const Styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignContent: 'center',
     paddingHorizontal: moderateScale(23),
     borderBottomColor: 'black',
-    backgroundColor: color.Dark_purple,
-    paddingTop: moderateScale(15),
+    backgroundColor: color.White,
+    paddingTop: moderateScale(56),
     height: 65,
     shadowColor: color.Black,
     // shadowOffset: {width: 1, height: 1},
@@ -54,4 +60,4 @@ const Styles=StyleSheet.create({
     height: moderateVerticalScale(30),
     width: moderateScale(30),
   },
-})
+});

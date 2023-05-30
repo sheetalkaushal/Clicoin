@@ -1,18 +1,15 @@
-import { View, Text, FlatList, Image } from "react-native";
-import React from "react";
-import { StyleSheet } from "react-native";
-import {
-  moderateScale,
-  moderateVerticalScale,
-} from "react-native-size-matters";
-import ImagePath from "../constants/ImagePath";
-import { TouchableOpacity } from "react-native";
-import { useEffect } from "react";
-import { Getdata } from "../redux/actions/apiaction";
-import { COIN_CAT } from "../config/urls";
-import { getdata } from "../redux/actions/action";
-import { useSelector } from "react-redux";
-import color from "../style/color";
+import {View, Text, FlatList, Image} from 'react-native';
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
+import ImagePath from '../constants/ImagePath';
+import {TouchableOpacity} from 'react-native';
+import {useEffect} from 'react';
+import {Getdata} from '../redux/actions/apiaction';
+import {COIN_CAT} from '../config/urls';
+import {getdata} from '../redux/actions/action';
+import {useSelector} from 'react-redux';
+import color from '../style/color';
 export const Cards = ({
   imgSourc,
   coinName,
@@ -33,15 +30,13 @@ export const Cards = ({
   //   }, []);
   return (
     <View>
-      <TouchableOpacity
-        style={{ ...Style.coin, ...{ backgroundColor: bgcolor } }}
-      >
+      <TouchableOpacity style={{...Style.coin, ...{backgroundColor: bgcolor}}}>
         <View style={Style.allcontent}>
           <View style={Style.uppertext}>
             <Image style={Style.imgsymbol} source={imgSourc} />
             <Text style={Style.uppertxt}>
               {coinName}
-              {"\n"}
+              {'\n'}
               <Text style={Style.lowertxt}>{lowerName}</Text>
             </Text>
           </View>
@@ -114,15 +109,15 @@ export const Style = StyleSheet.create({
     fontSize: 18,
   },
   listingdivide: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   imgarrow: {
     backgroundColor: color.White,
     borderRadius: 20,
   },
   uppertext: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
