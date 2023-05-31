@@ -19,7 +19,6 @@ export default function DynamicHeader({
   placeholder,
   keyboard,
   onPress,
-  bgColor,
 }) {
   const animateHeaderBackgroundColor = animHeaderValue.interpolate({
     inputRange: [0, Header_Max_Height - Header_Min_Height],
@@ -32,7 +31,11 @@ export default function DynamicHeader({
     outputRange: [Header_Max_Height, Header_Min_Height],
     extrapolate: 'clamp',
   });
-
+  const searchColor = animHeaderValue.interpolate({
+    inputRange: [0, Header_Max_Height - Header_Min_Height],
+    outputRange: [color.White, color.grey_light],
+    extrapolate: 'clamp',
+  });
   return (
     <Animated.View
       style={[
@@ -40,7 +43,7 @@ export default function DynamicHeader({
         {
           height: animateHeaderHeight,
           backgroundColor: animateHeaderBackgroundColor,
-          elevation: 1,
+          elevation: 10,
         },
       ]}>
       <View style={Styles.banner}>
@@ -48,14 +51,15 @@ export default function DynamicHeader({
           <View style={Styles.profileheader}>
             <Image style={Styles.imgprofile} source={ImagePath.icProfile} />
           </View>
-          <View style={{...Styles.sreaching,}}>
+          <Animated.View
+            style={{...Styles.sreaching, backgroundColor: searchColor}}>
             <Image style={Styles.sreachimg} source={ImagePath.icSreach} />
             <TextInput
               style={Styles.lookingsreach}
               placeholder={placeholder}
               placeholderTextColor="black"
               keyboardType={keyboard}></TextInput>
-          </View>
+          </Animated.View>
         </View>
         <View style={Styles.notification}>
           <Image source={ImagePath.icnotification} />
@@ -71,7 +75,7 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 23,
     alignContent: 'center',
-    borderBottomColor: 'black',
+    // borderBottomColor: 'black',
   },
   header: {
     padding: 23,
@@ -97,7 +101,6 @@ const Styles = StyleSheet.create({
     borderRadius: 50,
   },
   sreaching: {
-    backgroundColor: color.grey_light,
     height: 35,
     width: 210,
     borderRadius: 20,

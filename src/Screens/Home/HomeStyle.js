@@ -23,7 +23,7 @@ export const Style = StyleSheet.create({
     height: 120,
     borderRadius: 8,
     elevation: 6,
-    marginTop:330,
+    marginTop: 330,
   },
   listingPrice: {
     paddingHorizontal: 20,
