@@ -1,5 +1,5 @@
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import React, {useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 // import { Styles } from "./HeaderStyle";
 import {Animated} from 'react-native';
 import ImagePath from '../constants/ImagePath';
@@ -12,6 +12,7 @@ export default Header = ({
   notification,
   txtstyle,
   headerStyle,
+  headercolor,
 }) => {
   return (
     <View style={{...Styles.header, ...headerStyle}}>
@@ -34,11 +35,14 @@ const Styles = StyleSheet.create({
     borderBottomColor: 'black',
     backgroundColor: color.White,
     paddingTop: moderateScale(56),
-    height: 65,
+    height: 40,
     shadowColor: color.Black,
     // shadowOffset: {width: 1, height: 1},
     // shadowOpacity: 0.1,
     // elevation: 20,
+  },
+  headercolor: {
+    color: color.Dark_purple,
   },
   Leftcontainer: {
     flexDirection: 'row',

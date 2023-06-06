@@ -40,8 +40,6 @@ export default {
   icQuick: require("../assets/images/Quick.jpeg"),
   icEasy: require("../assets/images/Easy.png"),
   icLock: require("../assets/images/Lock.png"),
-
-
-  
+  icgraph: require("../assets/images/graph.jpg"),
 };
 

@@ -10,6 +10,7 @@ import {AsyncSendData} from '../../utilis/utilis';
 import {datasend, namedata} from '../../redux/actions/action';
 import auth from '@react-native-firebase/auth';
 import TextField from '../../Components/TextField';
+import { Home } from '../Home/Home';
 export const Login = ({navigation}) => {
   const [Email, SetEmail] = useState('');
   const [pass, SetPass] = useState('');
@@ -127,15 +128,19 @@ export const Login = ({navigation}) => {
         <TouchableOpacity>
           <Text style={Styles.forgot}>{strings.Forgot}</Text>
         </TouchableOpacity>
-        <Custombtn onPress={() => {Emailsign();gotologin()}} title={strings.Continue} />
-        
+        <Custombtn
+          onPress={() => {gotologin(); 
+            Emailsign()}}
+          title={strings.Continue}
+        />
+
         <View style={Styles.orborder}>
           <View style={Styles.orline}></View>
           <Text style={Styles.or}>{strings.or}</Text>
           <View style={Styles.orline1}></View>
         </View>
         <Btnsocial
-          onPress={googleSignIn}
+          onPress={Home}
           socialimg={ImagePath.icGoogle}
           title={strings.Google_account}
         />

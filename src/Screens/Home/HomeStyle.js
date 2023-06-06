@@ -31,7 +31,7 @@ export const Style = StyleSheet.create({
   price: {
     fontSize: 22,
     color: color.Dark_purple,
-    fontWeight: '400',
+    fontWeight:"400",
   },
   symbol: {
     width: 30,
@@ -40,7 +40,7 @@ export const Style = StyleSheet.create({
     marginRight: moderateScale(9),
   },
   instant: {
-    alignItems: 'center',
+ alignItems: 'center',
   },
   Buy: {
     paddingTop: 12,

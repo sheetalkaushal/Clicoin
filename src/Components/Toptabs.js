@@ -25,7 +25,7 @@ export const Toptabs = () => {
                   <Text style={Style.lowertext}>{item.symbol}</Text>
                 </Text>
               </View>
-              <View style={Style.counting}>
+              <View>
                 <Text style={Style.count}>{item.current_price}</Text>
                 <Text style={Style.countdown}>
                   {item.price_change_percentage_24h}

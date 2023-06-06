@@ -8,7 +8,7 @@ export const Styles = StyleSheet.create({
     color: color.Black,
   },
   headerMarket: {
-    height: 120,
+    height: 110,
   },
   notificated: {
     alignItems: 'center',

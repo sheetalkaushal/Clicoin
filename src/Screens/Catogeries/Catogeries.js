@@ -6,25 +6,35 @@ import {
   TouchableOpacity,
   ScrollView,
   Touchable,
+  StatusBar,
 } from 'react-native';
 import React from 'react';
 import {Style} from './CatogeriesStyle';
 import ImagePath from '../../constants/ImagePath';
 import {useSelector} from 'react-redux';
 import strings from '../../constants/strings';
-const Catogeries = () => {
+import color from '../../style/color';
+const Catogeries = ({navigation}) => {
   const apivalue = useSelector(state => state.status.apiupdate);
   return (
     <ScrollView>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor={color.White}
+        translucent={true}
+      />
       <View style={Style.cap}>
         <TouchableOpacity style={Style.categery}>
           <Image style={{borderRadius: 18}} source={ImagePath.iclargecap} />
           <Text style={Style.largeCaps}>{strings.Large_Caps}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={Style.market}>
+        <View style={Style.market}>
           <Text style={Style.tokens}>{strings.Top_tokens}</Text>
-          <Image source={ImagePath.icnavigation} />
-        </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('LargeCap')}>
+            <Image source={ImagePath.icnavigation} />
+          </TouchableOpacity>
+        </View>
         {apivalue.map((item, index) => {
           return (
             <TouchableOpacity key={index} style={Style.bitcoins}>
@@ -51,7 +61,10 @@ const Catogeries = () => {
         </TouchableOpacity>
         <TouchableOpacity style={Style.market}>
           <Text style={Style.tokens}>{strings.Top_volume} </Text>
-          <Image source={ImagePath.icnavigation} />
+          <Image
+            style={{alignSelf: 'center'}}
+            source={ImagePath.icnavigation}
+          />
         </TouchableOpacity>
         {apivalue.map((item, index) => {
           return (

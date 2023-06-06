@@ -6,7 +6,7 @@ import {Style} from './AllStyle';
 const All = () => {
   const apivalue = useSelector(state => state.status.apiupdate);
   return (
-    <View>
+    <View style={Style.container}>
       {apivalue.map((item, index) => {
         return (
           <TouchableOpacity key={index} style={Style.bitcoins}>

@@ -45,9 +45,9 @@ export const Style = StyleSheet.create({
     borderBottomColor: color.grey_light,
     paddingVertical: moderateVerticalScale(15),
   },
-  counting: {
-    marginLeft: 90,
-  },
+  // counting: {
+  //   // marginLeft: 90,
+  // },
   toptext: {
     paddingHorizontal: 23,
   },

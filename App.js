@@ -8,6 +8,7 @@ import {useEffect} from 'react';
 import {COIN_POST} from './src/config/urls';
 import color from './src/style/color';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import LargeCap from './src/Screens/LargeCap/LargeCap';
 export default function App() {
   useEffect(() => {
     Getdata(COIN_POST)
@@ -18,14 +19,9 @@ export default function App() {
   }, []);
   return (
     <View style={{flex: 1}}>
-      <StatusBar
-        barStyle="dark-content"
-        hidden={false}
-        backgroundColor={color.White}
-        translucent={true}
-      />
       <Provider store={store}>
-        <Routes />
+        {/* <Routes /> */}
+        <LargeCap/>
       </Provider>
     </View>
   );

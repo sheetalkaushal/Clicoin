@@ -5,7 +5,7 @@ import color from '../../style/color';
 export const Styles = StyleSheet.create({
   main: {
     backgroundColor: color.Light_White,
-    flex: 0.9,
+    // flex: 0.9,
   },
 
   header: {
@@ -25,18 +25,17 @@ export const Styles = StyleSheet.create({
     gap: 20,
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
-    flex: 0.2,
+    // flex: 0.1,
   },
   LoginAccount: {
     borderRadius: 2,
     height: moderateVerticalScale(48),
     alignItems: 'center',
-    marginTop: moderateScale(22),
-    paddingVertical: moderateVerticalScale(14),
+    // paddingVertical: moderateVerticalScale(14),
     borderRadius: 8,
   },
   Login: {
-    fontSize: moderateVerticalScale(14),
+    fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
     color: color.Dark_purple,

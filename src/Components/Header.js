@@ -8,17 +8,21 @@ import {
   Image,
   TextInput,
 } from 'react-native';
+import {useState} from 'react';
 import color from '../style/color';
 import ImagePath from '../constants/ImagePath';
 import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
+import Custombtn from './Custombtn';
+import Notification from '../Screens/Notification/Notification';
 const Header_Max_Height = 300;
 const Header_Min_Height = 100;
 
-export default function DynamicHeader({
+export default function DynamicHeader({ navigation,
   animHeaderValue,
   placeholder,
   keyboard,
   onPress,
+  Content,
 }) {
   const animateHeaderBackgroundColor = animHeaderValue.interpolate({
     inputRange: [0, Header_Max_Height - Header_Min_Height],
@@ -48,9 +52,9 @@ export default function DynamicHeader({
       ]}>
       <View style={Styles.banner}>
         <View style={Styles.navbar}>
-          <View style={Styles.profileheader}>
+          <TouchableOpacity style={Styles.profileheader}>
             <Image style={Styles.imgprofile} source={ImagePath.icProfile} />
-          </View>
+          </TouchableOpacity>
           <Animated.View
             style={{...Styles.sreaching, backgroundColor: searchColor}}>
             <Image style={Styles.sreachimg} source={ImagePath.icSreach} />
@@ -61,9 +65,9 @@ export default function DynamicHeader({
               keyboardType={keyboard}></TextInput>
           </Animated.View>
         </View>
-        <View style={Styles.notification}>
-          <Image source={ImagePath.icnotification} />
-        </View>
+        <TouchableOpacity onPress={onPress} style={Styles.notification}>
+          <Image source={ImagePath.icnotification}/>
+        </TouchableOpacity>
       </View>
     </Animated.View>
   );
@@ -75,7 +79,6 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 23,
     alignContent: 'center',
-    // borderBottomColor: 'black',
   },
   header: {
     padding: 23,
@@ -84,7 +87,6 @@ const Styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 1,
-    flexDirection: 'row',
   },
   navbar: {
     flex: 1,
@@ -128,5 +130,11 @@ const Styles = StyleSheet.create({
   },
   profileheader: {
     marginTop: 4,
+  },
+  verify: {
+    marginTop: 45,
+  },
+  panSecure: {
+    color: color.White,
   },
 });

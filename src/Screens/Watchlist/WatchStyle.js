@@ -9,7 +9,7 @@ export const Style = StyleSheet.create({
     alignItems: 'center',
   },
   glasimg: {
-    marginTop: moderateScale(120),
+    marginTop: moderateScale(70),
     alignItems: 'center',
   },
   shortlist: {
@@ -17,7 +17,7 @@ export const Style = StyleSheet.create({
   },
   explore: {
     width: 350,
-    marginTop: moderateScale(55),
+    marginTop: moderateScale(50),
   },
   favourite: {
     fontSize: 18,

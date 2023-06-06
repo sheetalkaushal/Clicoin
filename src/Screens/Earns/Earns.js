@@ -1,18 +1,23 @@
-import {View, Text, Image, Dimensions} from 'react-native';
+import {View, Text, Image, Dimensions, StatusBar} from 'react-native';
 import React from 'react';
 import {Style} from './EarnsStyle';
 import ImagePath from '../../constants/ImagePath';
 import strings from '../../constants/strings';
+import color from '../../style/color';
 const Earns = () => {
   return (
+    
     <View style={Style.container}>
+      
       {/* <LinearGradient
       style={{ marginTop:48 }}
         colors={[Colors.White, Colors.Green]}
         start={{ x: 0, y: 0.5 }}
         end={{ x: 1, y: 0.5 }}>
      */}
+ 
       <View style={Style.uppercontent}>
+     
         <View style={Style.earn}>
           <Text style={Style.introduction}>{strings.INTRODUCING_EARN}</Text>
         </View>
@@ -20,6 +25,7 @@ const Earns = () => {
           <Text style={Style.Cryptos}>{strings.Get_Returns}</Text>
           <Text style={Style.EarnsHodl}>{strings.Earns_while}</Text>
         </View>
+        
         <View style={Style.invested}>
           <Image style={Style.Quickimg} source={ImagePath.icQuick} />
           <Text style={Style.alreadyInvested}>

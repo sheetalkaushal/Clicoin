@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import React, {useRef, useState} from 'react';
 import Header from '../../Components/Header';
@@ -20,8 +21,9 @@ import strings from '../../constants/strings';
 import {Toptabs} from '../../Components/Toptabs';
 import color from '../../style/color';
 import {Animated} from 'react-native';
+import Custombtn from '../../Components/Custombtn';
 
-export const Home = () => {
+export const Home = ({navigation}) => {
   let scrollOffsetY = useRef(new Animated.Value(0)).current;
 
   return (
@@ -69,7 +71,6 @@ export const Home = () => {
           <View style={Style.listingPrice}>
             <Text style={Style.price}>{strings.Recently_Listed}</Text>
           </View>
-
           <ScrollView
             horizontal
             showsVerticalScrollIndicator={false}
