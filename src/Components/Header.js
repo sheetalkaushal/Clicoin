@@ -17,7 +17,8 @@ import Notification from '../Screens/Notification/Notification';
 const Header_Max_Height = 300;
 const Header_Min_Height = 100;
 
-export default function DynamicHeader({ navigation,
+export default function DynamicHeader({
+  navigation,
   animHeaderValue,
   placeholder,
   keyboard,
@@ -66,7 +67,7 @@ export default function DynamicHeader({ navigation,
           </Animated.View>
         </View>
         <TouchableOpacity onPress={onPress} style={Styles.notification}>
-          <Image source={ImagePath.icnotification}/>
+          <Image source={ImagePath.icnotification} />
         </TouchableOpacity>
       </View>
     </Animated.View>

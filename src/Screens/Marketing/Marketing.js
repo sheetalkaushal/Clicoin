@@ -15,7 +15,7 @@ const Marketing = () => {
     <>
       <View>
         <MarketHeader
-        Header
+          // Header
           myText={'Markets'}
           notification={ImagePath.icSreach}
           txtstyle={Styles.market}

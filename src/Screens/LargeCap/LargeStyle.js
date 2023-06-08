@@ -2,13 +2,23 @@ import {StyleSheet} from 'react-native';
 import color from '../../style/color';
 import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-export  const Style= StyleSheet.create({
+export const Style = StyleSheet.create({
   container: {
     backgroundColor: color.White,
     flex: 1,
   },
   bitlist: {
-    flex: 0.6,
+    flex: 0.5,
+  },
+  //   animatedimg:{
+  //     flex:0.3
+  // },
+  Headernavbar: {
+    height: 100,
+  },
+  txt: {
+    color: color.Black,
+    fontSize: 16,
   },
   back: {
     marginTop: 70,
@@ -31,11 +41,11 @@ export  const Style= StyleSheet.create({
     marginTop: 12,
     color: color.DARK_GREY,
   },
-  graphimg:scrollA=>( {
-    height: 230,
-    width: 400,
-    top:scrollA
-  }),
+  graphimg: {
+    height: '100%',
+    width: '100%',
+  },
+
   symbol: {
     width: 30,
     height: 30,

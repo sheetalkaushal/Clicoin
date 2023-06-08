@@ -7,7 +7,6 @@ import {datapi} from './src/redux/actions/action';
 import {useEffect} from 'react';
 import {COIN_POST} from './src/config/urls';
 import color from './src/style/color';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import LargeCap from './src/Screens/LargeCap/LargeCap';
 export default function App() {
   useEffect(() => {
@@ -15,7 +14,7 @@ export default function App() {
       .then(res => {
         datapi(res.data);
       })
-      .catch(er => {});
+      .catch(er => {console.log(er,'error>>>>')});
   }, []);
   return (
     <View style={{flex: 1}}>

@@ -12,13 +12,17 @@ export default Header = ({
   notification,
   txtstyle,
   headerStyle,
+  navbar,
+  navbartxt,
   headercolor,
 }) => {
   return (
-    <View style={{...Styles.header, ...headerStyle}}>
+    <View style={{...Styles.header, ...headerStyle, ...navbar}}>
       <TouchableOpacity style={Styles.Leftcontainer}>
         {Myimg ? <Image style={Styles.profile} source={Myimg} /> : null}
-        <Text style={{...Styles.profilename, ...txtstyle}}>{myText}</Text>
+        <Text style={{...Styles.profilename, ...txtstyle, ...navbartxt}}>
+          {myText}
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity>
         <Image style={Styles.notification} source={notification} />
@@ -34,6 +38,7 @@ const Styles = StyleSheet.create({
     paddingHorizontal: moderateScale(23),
     borderBottomColor: 'black',
     backgroundColor: color.White,
+    marginTop:0,
     paddingTop: moderateScale(56),
     height: 40,
     shadowColor: color.Black,
